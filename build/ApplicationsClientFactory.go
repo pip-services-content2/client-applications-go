@@ -6,12 +6,12 @@ import (
 	cbuild "github.com/pip-services3-gox/pip-services3-components-gox/build"
 )
 
-type EmailClientFactory struct {
+type ApplicationsClientFactory struct {
 	*cbuild.Factory
 }
 
-func NewEmailClientFactory() *EmailClientFactory {
-	c := &EmailClientFactory{
+func NewApplicationsClientFactory() *ApplicationsClientFactory {
+	c := &ApplicationsClientFactory{
 		Factory: cbuild.NewFactory(),
 	}
 
