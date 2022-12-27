@@ -16,11 +16,13 @@ func NewApplicationsClientFactory() *ApplicationsClientFactory {
 	}
 
 	nullClientDescriptor := cref.NewDescriptor("service-applications", "client", "null", "*", "1.0")
+	mockClientDescriptor := cref.NewDescriptor("service-applications", "client", "mock", "*", "1.0")
 	cmdHttpClientDescriptor := cref.NewDescriptor("service-applications", "client", "commandable-http", "*", "1.0")
 	grpcClientDescriptor := cref.NewDescriptor("service-applications", "client", "grpc", "*", "1.0")
 	cmdGrpcClientDescriptor := cref.NewDescriptor("service-applications", "client", "commandable-grpc", "*", "1.0")
 
 	c.RegisterType(nullClientDescriptor, clients1.NewApplicationsNullClientV1)
+	c.RegisterType(mockClientDescriptor, clients1.NewApplicationsMockClientV1)
 	c.RegisterType(cmdHttpClientDescriptor, clients1.NewApplicationsCommandableHttpClientV1)
 	c.RegisterType(grpcClientDescriptor, clients1.NewApplicationsGrpcClientV1)
 	c.RegisterType(cmdGrpcClientDescriptor, clients1.NewApplicationsCommandableGrpcClientV1)
