@@ -134,6 +134,10 @@ func (c *ApplicationsMockClientV1) DeleteApplicationById(ctx context.Context, co
 		return nil, nil
 	}
 	var item = c.applications[index]
-	c.applications = append(c.applications[:index], c.applications[index+1:]...)
+	if index < len(c.applications) {
+		c.applications = append(c.applications[:index], c.applications[index+1:]...)
+	} else {
+		c.applications = c.applications[:index]
+	}
 	return item, nil
 }
